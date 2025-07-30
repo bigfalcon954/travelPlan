@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ベトナム旅行スケジュール（2025年9月10日～14日）</title>
 <style>
   body {
@@ -15,10 +15,16 @@
   h1 {
     text-align: center;
     color: #b35247;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px 0 10px 0;
     font-size: 1.9em;
     font-weight: 700;
+  }
+  #countdown {
+    text-align: center;
+    font-size: 1.3em;
+    color: #d14b4b;
+    font-weight: 700;
+    margin-bottom: 20px;
   }
   .hotel {
     font-size: 1em;
@@ -49,8 +55,7 @@
   ul {
     list-style-type: disc;
     padding-left: 22px;
-    margin-top: 0;
-    margin-bottom: 18px;
+    margin: 0 0 18px 0;
   }
   li {
     margin-bottom: 8px;
@@ -75,93 +80,124 @@
     }
   }
 </style>
+<script>
+// カウントダウン表示
+document.addEventListener('DOMContentLoaded', () => {
+  const countdownEl = document.getElementById('countdown');
+  const targetDate = new Date('2025-09-10T00:00:00+09:00').getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    let diff = targetDate - now;
+
+    if (diff <= 0) {
+      countdownEl.textContent = 'いよいよ出発です！！';
+      clearInterval(timer);
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    diff %= (1000 * 60 * 60 * 24);
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    diff %= (1000 * 60 * 60);
+    const minutes = Math.floor(diff / (1000 * 60));
+
+    countdownEl.textContent = `出発まであと${days}日${hours}時間${minutes}分！！`;
+  }
+
+  updateCountdown();
+  const timer = setInterval(updateCountdown, 60000);
+});
+</script>
 </head>
 <body>
-  <h1>ベトナム旅行スケジュール<br>2025年9月10日～14日</h1>
 
-  <div class="hotel">ホイアンのホテル：RiverTown Hoi An Resort & Spa</div><br>
-  <div class="hotel">ダナンのホテル：Naman Retreat Resort</div>
+<h1>ベトナム旅行スケジュール<br>2025年9月10日～14日</h1>
+<div id="countdown">出発まであと--日--時間--分！！</div>
 
-  <section>
-    <div class="date">9/10（水）</div>
-    <div class="day-title">行き：羽田→ホーチミン→ダナン→ホイアン</div>
-    <ul>
-      <li><span class="time">0:00</span>羽田空港第3ターミナル集合</li>
-      <li><span class="time">02:00</span>羽田空港発（VJ821便）</li>
-      <li><span class="time">06:10</span>ホーチミン着（入国、国内線ターミナルへ移動）</li>
-      <li><span class="time">09:35</span>ホーチミン発（VJ1640便）</li>
-      <li><span class="time">10:55</span>ダナン空港着</li>
-      <li><span class="time">11:00</span>【ダナン空港で両替・SIMカード購入】</li>
-      <li><span class="time">11:30</span>Grab配車でRiverTown Hoi An Resort & Spaへ移動</li>
-      <li><span class="time">12:30</span>RiverTown Hoi An Resort & Spa チェックイン・休憩・仮眠</li>
-      <li><span class="time">15:00</span>自由時間／旧市街カフェやホテルでリラックス</li>
-      <li><span class="time">17:00</span>ホイアン旧市街観光・カフェ・雑貨店めぐり</li>
-      <li><span class="time">18:30</span>夕食（川沿いレストラン等）</li>
-      <li><span class="time">20:00</span>ランタン鑑賞＆灯篭流し・ナイトマーケット</li>
-    </ul>
-  </section>
+<div class="hotel">ホイアンのホテル：RiverTown Hoi An Resort &amp; Spa</div><br />
+<div class="hotel">ダナンのホテル：Naman Retreat Resort</div>
 
-  <section>
-    <div class="date">9/11（木）</div>
-    <div class="day-title">チャム島ツアー＆ダナンへ移動・夜ルーフトップバー/ナイトマーケット</div>
-    <ul>
-      <li><span class="time">朝</span>RiverTown Hoi An Resort & Spaをチェックアウト・荷物預け</li>
-      <li><span class="time">8:00～8:30</span>ホテル送迎車でホイアンのクアダイ港へ移動</li>
-      <li><span class="time">8:30～9:00</span>スピードボートでチャム島へ</li>
-      <li><span class="time">9:30～10:30</span>チャム島生物圏保護区・チャンパ古代井戸、ハイタンパゴダ、地元市場など文化体験</li>
-      <li><span class="time">11:00</span>美しいビーチで着替え・準備</li>
-      <li><span class="time">11:30～12:15</span>シュノーケリングまたは<br>シーウォーク体験（オプション）</li>
-      <li><span class="time">12:30</span>島内レストランでシーフードランチ</li>
-      <li><span class="time">13:15～14:00</span>ビーチで自由時間（泳ぐ・日光浴・写真など）</li>
-      <li><span class="time">14:00～14:30</span>スピードボートで本土へ戻る</li>
-      <li><span class="time">15:30～16:00</span>ホイアン到着、ホテルで荷物受取</li>
-      <li><span class="time">17:00</span>Grab等でダナンへ移動・Naman Retreat Resortチェックイン</li>
-      <li><span class="time">19:00</span>ルーフトップバー（Sky36 Bar等）</li>
-      <li><span class="time">20:30</span>ナイトマーケットや市内散策</li>
-    </ul>
-  </section>
+<section>
+  <div class="date">9/10（水）</div>
+  <div class="day-title">行き：羽田→ホーチミン→ダナン→ホイアン</div>
+  <ul>
+    <li><span class="time">0:00</span>羽田空港第3ターミナル集合</li>
+    <li><span class="time">02:00</span>羽田空港発（VJ821便）</li>
+    <li><span class="time">06:10</span>ホーチミン着（入国、国内線ターミナルへ移動）</li>
+    <li><span class="time">09:35</span>ホーチミン発（VJ1640便）</li>
+    <li><span class="time">10:55</span>ダナン空港着</li>
+    <li><span class="time">11:00</span>【ダナン空港で両替・SIMカード購入】</li>
+    <li><span class="time">11:30</span>Grab配車でRiverTown Hoi An Resort &amp; Spaへ移動</li>
+    <li><span class="time">12:30</span>チェックイン・休憩・仮眠</li>
+    <li><span class="time">15:00</span>自由時間／旧市街カフェやホテルでリラックス</li>
+    <li><span class="time">17:00</span>ホイアン旧市街観光・カフェ・雑貨店めぐり</li>
+    <li><span class="time">18:30</span>夕食（川沿いレストラン等）</li>
+    <li><span class="time">20:00</span>ランタン鑑賞＆灯篭流し・ナイトマーケット</li>
+  </ul>
+</section>
 
-  <section>
-    <div class="date">9/12（金）</div>
-    <div class="day-title">ダナン観光・ショッピング・夜ドラゴンブリッジショー</div>
-    <ul>
-      <li><span class="time">朝</span>Naman Retreat Resortで朝食・ミーケビーチやホテルプールでゆっくり</li>
-      <li><span class="time">11:00</span>五行山（マーブルマウンテン）観光</li>
-      <li><span class="time">13:30</span>ランチ</li>
-      <li><span class="time">午後</span>ダナン大聖堂、市場、カフェ等でショッピングや街歩き</li>
-      <li><span class="time">17:00</span>ホテルやカフェで休憩</li>
-      <li><span class="time">18:30～19:30</span>市内レストランかカフェで夕食</li>
-      <li><span class="time">20:15</span>ドラゴンブリッジ周辺に移動</li>
-      <li><span class="time">21:00</span>ドラゴンブリッジ ファイヤー＆ウォーターショー鑑賞</li>
-    </ul>
-  </section>
+<section>
+  <div class="date">9/11（木）</div>
+  <div class="day-title">チャム島ツアー ＆ ダナンへ移動・夜ルーフトップバー／ナイトマーケット</div>
+  <ul>
+    <li><span class="time">朝</span>ホテルチェックアウト・荷物預け</li>
+    <li><span class="time">8:00～8:30</span>ホテル送迎車でホイアンのクアダイ港へ移動</li>
+    <li><span class="time">8:30～9:00</span>スピードボートでチャム島へ</li>
+    <li><span class="time">9:30～10:30</span>チャンパ古代井戸・ハイタンパゴダ・ローカル市場など島内文化体験</li>
+    <li><span class="time">11:00</span>ビーチ到着・着替え</li>
+    <li><span class="time">11:30～12:15</span>シュノーケリング／シーウォーク体験（オプション）</li>
+    <li><span class="time">12:30</span>シーフードランチ</li>
+    <li><span class="time">13:15～14:00</span>ビーチ自由時間（海水浴・写真撮影など）</li>
+    <li><span class="time">14:00～14:30</span>スピードボートで本土へ戻る</li>
+    <li><span class="time">15:30～16:00</span>ホイアン到着・ホテルで荷物受取</li>
+    <li><span class="time">17:00</span>Grabでダナンへ移動・Naman Retreat Resortチェックイン</li>
+    <li><span class="time">19:00</span>ルーフトップバー（Sky36 Bar等）</li>
+    <li><span class="time">20:30</span>ナイトマーケットや市内散策</li>
+  </ul>
+</section>
 
-  <section>
-    <div class="date">9/13（土）</div>
-    <div class="day-title">ダナン：ミーケビーチでマリンアクティビティ＆ショッピング</div>
-    <ul>
-      <li><span class="time">朝</span>Naman Retreat Resortで朝食</li>
-      <li><span class="time">午前</span>ミーケビーチでマリンアクティビティ（ジェットスキー、SUP、パラセーリング等）</li>
-      <li><span class="time">昼</span>カフェやレストランでランチ</li>
-      <li><span class="time">午後</span>ビーチ沿いやダナン市街地でショッピング・カフェタイム（Vincom Plaza、Lotte Mart、ハン市場等）</li>
-      <li><span class="time">夕方</span>ホテルで休憩・希望があればスパやマッサージ</li>
-      <li><span class="time">夜</span>ビーチサイド/市内レストランでディナー</li>
-    </ul>
-  </section>
+<section>
+  <div class="date">9/12（金）</div>
+  <div class="day-title">ダナン観光・ショッピング・夜ドラゴンブリッジショー</div>
+  <ul>
+    <li><span class="time">朝</span>Naman Retreat Resortで朝食・ミーケビーチやホテルプールでゆっくり</li>
+    <li><span class="time">11:00</span>五行山（マーブルマウンテン）観光</li>
+    <li><span class="time">13:30</span>ランチ</li>
+    <li><span class="time">午後</span>ダナン大聖堂、市場、カフェ等でショッピングや街歩き</li>
+    <li><span class="time">17:00</span>ホテルやカフェで休憩</li>
+    <li><span class="time">18:30～19:30</span>市内レストランかカフェで夕食</li>
+    <li><span class="time">20:15</span>ドラゴンブリッジ周辺に移動</li>
+    <li><span class="time">21:00</span>ドラゴンブリッジ ファイヤー＆ウォーターショー鑑賞</li>
+  </ul>
+</section>
 
-  <section>
-    <div class="date">9/14（日）</div>
-    <div class="day-title">帰国日：ダナン→香港→羽田</div>
-    <ul>
-      <li><span class="time">6:30～7:00</span>起床、朝食（ホテルまたはテイクアウト）</li>
-      <li><span class="time">7:30～8:00</span>Naman Retreat Resortチェックアウト・空港へ移動</li>
-      <li><span class="time">8:30</span>ダナン空港到着</li>
-      <li><span class="time">10:05</span>ダナン発（UO553便）</li>
-      <li><span class="time">13:05</span>香港着（トランジット：約4.5時間）</li>
-      <li><span class="time">17:35</span>香港発（UO622便）</li>
-      <li><span class="time">22:55</span>羽田着</li>
-    </ul>
-  </section>
+<section>
+  <div class="date">9/13（土）</div>
+  <div class="day-title">ミーケビーチでマリンアクティビティ ＆ ショッピング</div>
+  <ul>
+    <li><span class="time">朝</span>Naman Retreat Resortで朝食</li>
+    <li><span class="time">午前</span>ミーケビーチでマリンアクティビティ（ジェットスキー、SUP、パラセーリング等）</li>
+    <li><span class="time">昼</span>カフェやレストランでランチ</li>
+    <li><span class="time">午後</span>Vincom Plaza / Lotte Mart / ハン市場などでショッピング＆カフェタイム</li>
+    <li><span class="time">夕方</span>ホテルで休憩・希望があればスパやマッサージ</li>
+    <li><span class="time">夜</span>ビーチサイドまたは市内レストランでディナー</li>
+  </ul>
+</section>
+
+<section>
+  <div class="date">9/14（日）</div>
+  <div class="day-title">帰国日：ダナン → 香港 → 羽田</div>
+  <ul>
+    <li><span class="time">6:30～7:00</span>起床、朝食（ホテルまたはテイクアウト）</li>
+    <li><span class="time">7:30～8:00</span>Naman Retreat Resortチェックアウト・空港へ移動</li>
+    <li><span class="time">8:30</span>ダナン空港到着</li>
+    <li><span class="time">10:05</span>ダナン発（UO553便）</li>
+    <li><span class="time">13:05</span>香港着（トランジット：約4.5時間）</li>
+    <li><span class="time">17:35</span>香港発（UO622便）</li>
+    <li><span class="time">22:55</span>羽田着</li>
+  </ul>
+</section>
 
 </body>
 </html>
