@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>カナダ旅行スケジュール（2025年12月27日～2026年1月3日）</title>
+<style>
+  body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; background:#fff8f0; margin:0; padding:0 10px; color:#333; }
+  h1 { text-align:center; color:#b35247; margin:20px 0 10px; font-size:1.9em; font-weight:700; }
+  #countdown { text-align:center; font-size:1.3em; color:#705554; font-weight:700; margin-bottom:20px; letter-spacing:1px; }
+  .hotel { font-size:1em; color:#837046; background:#f3e1c5; display:inline-block; padding:3px 11px; border-radius:12px; margin-bottom:4px; margin-top:6px; }
+  .date { font-size:2em; font-weight:bold; color:#705554; margin-top:35px; margin-bottom:10px; letter-spacing:2px; line-height:1.1; }
+  .day-title { font-weight:bold; color:#bc6c25; margin-bottom:10px; font-size:1.13em; letter-spacing:.5px; }
+  ul { list-style-type: disc; padding-left:22px; margin:0 0 18px 0; }
+  li { margin-bottom:8px; line-height:1.6; }
+  .time { font-weight:bold; color:#8b5e3c; margin-right:8px; }
+  @media (max-width:600px){ body{padding:20px 12px 40px} h1{font-size:1.3em} .date{font-size:1.4em; margin-top:28px} }
+</style>
+<script>
+// カウントダウン（出発基準：2025-12-27 00:00 JST）
+document.addEventListener('DOMContentLoaded', () => {
+  const el = document.getElementById('countdown');
+  const target = new Date('2025-12-27T00:00:00+09:00').getTime();
+  function tick(){
+    const now = Date.now();
+    let diff = target - now;
+    if(diff <= 0){ el.textContent = 'いよいよ出発です！！'; clearInterval(t); return; }
+    const d = Math.floor(diff / 86400000);
+    diff %= 86400000;
+    const h = Math.floor(diff / 3600000);
+    diff %= 3600000;
+    const m = Math.floor(diff / 60000);
+    el.textContent = `出発まであと${d}日${h}時間${m}分！！`;
+  }
+  tick();
+  const t = setInterval(tick, 60000);
+});
+</script>
+</head>
+<body>
+<h1>カナダ旅行スケジュール<br>2025年12月27日～2026年1月3日</h1>
+<div id="countdown">出発まであと--日--時間--分！！</div>
+
+<div class="hotel">12/27：Midnight Sun INN（ホワイトホース）</div><br />
+<div class="hotel">12/28-12/30：Boreale Ranch（ホワイトホース）</div><br />
+<div class="hotel">12/31-1/2：YMCA Hotel（バンクーバー）</div>
+
+<section>
+  <div class="date">12/27（土）</div>
+  <div class="day-title">行き：成田→カルガリー→ホワイトホース</div>
+  <ul>
+    <li><span class="time">18:35</span>成田空港発 WS081便</li>
+    <li><span class="time">11:40</span>カルガリー着</li>
+    <li>カルガリー空港で休憩・乗り継ぎ</li>
+    <li><span class="time">18:05</span>カルガリー発</li>
+    <li><span class="time">20:45</span>ホワイトホース着</li>
+    <li>ホテルチェックイン：Midnight Sun INN</li>
+  </ul>
+</section>
+
+<section>
+  <div class="date">12/28（日）～12/30（火）</div>
+  <div class="day-title">ホワイトホース・オーロラ体験＆滞在（Boreale Ranch宿泊）</div>
+  <ul>
+    <li>チェックアウト後、Boreale Ranchへ移動・チェックイン</li>
+    <li>オーロラ鑑賞、アクティビティ（スノーシュー、犬ぞり等予定）</li>
+    <li>朝食・夕食付き（Boreale Ranchにて）</li>
+    <li>自由時間—ショッピング、市内散策、写真撮影等</li>
+    <li>ツアー申込・防寒具レンタル可能</li>
+  </ul>
+</section>
+
+<section>
+  <div class="date">12/31（水）</div>
+  <div class="day-title">移動：ホワイトホース→バンクーバー／新年カウントダウン</div>
+  <ul>
+    <li>朝：Boreale Ranchチェックアウト</li>
+    <li><span class="time">12:55</span>ホワイトホース発 4N553便</li>
+    <li><span class="time">14:10</span>バンクーバー着</li>
+    <li>YMCA Hotel バンクーバーへチェックイン（2泊）</li>
+    <li>バンクーバーの新年カウントダウンイベント参加予定</li>
+  </ul>
+</section>
+
+<section>
+  <div class="date">1/1（木）</div>
+  <div class="day-title">バンクーバー観光＆休息日</div>
+  <ul>
+    <li>市内観光（スタンレーパーク、ガスタウン散策等）</li>
+    <li>ショッピング、レストランで食事</li>
+    <li>YMCA Hotel滞在</li>
+  </ul>
+</section>
+
+<section>
+  <div class="date">1/2（金）</div>
+  <div class="day-title">帰国：バンクーバー→成田</div>
+  <ul>
+    <li>YMCA Hotelチェックアウト</li>
+    <li><span class="time">09:50</span>バンクーバー発 ZG021便</li>
+    <li>機内泊、翌日に日本着</li>
+  </ul>
+</section>
+
+<section>
+  <div class="date">1/3（土）</div>
+  <div class="day-title">成田空港着</div>
+  <ul>
+    <li><span class="time">13:00</span>成田空港着・お疲れさまでした！</li>
+  </ul>
+</section>
+
+</body>
+</html>
