@@ -4,20 +4,238 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ベトナム旅行スケジュール（2025年9月10日～14日）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; background:#fff8f0; margin:0; padding:0 10px; color:#333; }
-  h1 { text-align:center; color:#b35247; margin:20px 0 10px; font-size:1.9em; font-weight:700; }
-  #countdown { text-align:center; font-size:1.3em; color:#705554; font-weight:700; margin-bottom:20px; letter-spacing:1px; }
-  .hotel { font-size:1em; color:#837046; background:#f3e1c5; display:inline-block; padding:3px 11px; border-radius:12px; margin-bottom:4px; margin-top:6px; }
-  .date { font-size:2em; font-weight:bold; color:#705554; margin-top:35px; margin-bottom:10px; letter-spacing:2px; line-height:1.1; }
-  .day-title { font-weight:bold; color:#bc6c25; margin-bottom:10px; font-size:1.13em; letter-spacing:.5px; }
-  ul { list-style-type: disc; padding-left:22px; margin:0 0 18px 0; }
-  li { margin-bottom:8px; line-height:1.6; }
-  .time { font-weight:bold; color:#8b5e3c; margin-right:8px; }
-  @media (max-width:600px){ body{padding:20px 12px 40px} h1{font-size:1.3em} .date{font-size:1.4em; margin-top:28px} }
+  :root {
+    --primary: #0d9488;
+    --primary-dark: #0f766e;
+    --accent: #f97316;
+    --accent-light: #fed7aa;
+    --bg: #f0fdfa;
+    --card-bg: #ffffff;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --gradient-start: #0d9488;
+    --gradient-end: #06b6d4;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+    --shadow-hover: 0 4px 24px rgba(13,148,136,0.12);
+    --radius: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Inter", "Noto Sans JP", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    padding: 48px 20px 40px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+
+  .hero h1 {
+    font-size: 1.8em;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 small {
+    display: block;
+    font-size: 0.55em;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  .countdown-wrapper {
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+  }
+
+  #countdown {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 1.05em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px 60px;
+  }
+
+  .hotels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .hotel {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.88em;
+    font-weight: 500;
+    color: var(--primary-dark);
+    background: rgba(13,148,136,0.08);
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 1px solid rgba(13,148,136,0.15);
+  }
+
+  .hotel::before {
+    content: '\1F3E8';
+    font-size: 1em;
+  }
+
+  .day-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 24px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+    border: 1px solid var(--border);
+  }
+
+  .day-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .day-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--bg);
+  }
+
+  .day-date {
+    font-size: 1.6em;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+
+  .day-title {
+    font-size: 0.95em;
+    font-weight: 600;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .timeline {
+    list-style: none;
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary), rgba(13,148,136,0.15));
+    border-radius: 2px;
+  }
+
+  .timeline li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 12px;
+    font-size: 0.93em;
+  }
+
+  .timeline li::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    border: 2px solid var(--primary);
+  }
+
+  .timeline li:first-child::before {
+    background: var(--primary);
+  }
+
+  .time {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--primary-dark);
+    min-width: 52px;
+    margin-right: 6px;
+    font-size: 0.95em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 36px 16px 32px; }
+    .hero h1 { font-size: 1.35em; }
+    .hero h1 small { font-size: 0.6em; }
+    #countdown { font-size: 0.9em; padding: 8px 18px; }
+    .container { padding: 16px 12px 40px; }
+    .day-card { padding: 20px 16px; }
+    .day-header { flex-direction: column; gap: 4px; }
+    .day-date { font-size: 1.35em; }
+    .hotels { flex-direction: column; }
+  }
 </style>
 <script>
-// カウントダウン（出発基準：2025-09-10 00:00 JST）
 document.addEventListener('DOMContentLoaded', () => {
   const el = document.getElementById('countdown');
   const target = new Date('2025-09-10T00:00:00+09:00').getTime();
@@ -30,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const h = Math.floor(diff / 3600000);
     diff %= 3600000;
     const m = Math.floor(diff / 60000);
-    el.textContent = `出発まであと${d}日${h}時間${m}分！！`;
+    el.textContent = `出発まであと ${d}日 ${h}時間 ${m}分`;
   }
   tick();
   const t = setInterval(tick, 60000);
@@ -38,92 +256,116 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </head>
 <body>
-<h1>ベトナム旅行スケジュール<br>2025年9月10日～14日</h1>
-<div id="countdown">出発まであと--日--時間--分！！</div>
 
-<div class="hotel">ホイアンのホテル：RiverTown Hoi An Resort &amp; Spa</div><br />
-<div class="hotel">ダナンのホテル：Naman Retreat Resort</div>
+<div class="hero">
+  <h1>
+    ベトナム旅行スケジュール
+    <small>2025年9月10日（水）〜 14日（日）</small>
+  </h1>
+  <div class="countdown-wrapper">
+    <div id="countdown">出発まであと--日--時間--分</div>
+  </div>
+</div>
 
-<section>
-  <div class="date">9/10（水）</div>
-  <div class="day-title">行き：羽田→ホーチミン→ダナン→ホイアン</div>
-  <ul>
-    <li><span class="time">0:00</span>羽田空港第3ターミナル集合</li>
-    <li><span class="time">02:00</span>羽田空港発（VJ821便）</li>
-    <li><span class="time">06:10</span>ホーチミン着（入国、国内線ターミナルへ移動）</li>
-    <li><span class="time">12:00</span>ホーチミン発（VJ1656便）</li>
-    <li><span class="time">13:25</span>ダナン空港着</li>
-    <li><span class="time">13:45</span>ダナン空港で両替</li>
-    <li><span class="time">14:00</span>Grab配車でRiverTown Hoi An Resort &amp; Spaへ移動</li>
-    <li><span class="time">14:40</span>チェックイン・ホテルで休憩</li>
-    <li><span class="time">16:30</span>旧市街へ観光に出発（来遠橋・会館・カフェなど）</li>
-    <li><span class="time">18:00</span>バインミー、レストランでディナー</li>
-    <li><span class="time">20:00</span>ランタン鑑賞＆灯篭流し・ナイトマーケット</li>
-  </ul>
-</section>
+<div class="container">
 
-<section>
-  <div class="date">9/11（木）</div>
-  <div class="day-title">チャム島ツアー ＆ ダナンへ移動・夜ルーフトップバー／ナイトマーケット</div>
-  <ul>
-    <li><span class="time">6:30</span>朝食ビュッフェ（RiverTown Hoi An Resort &amp; Spa）</li>
-    <li><span class="time">7:15</span>チェックアウト・フロントで荷物預け</li>
-    <li><span class="time">7:30</span>ホテルにてツアーピックアップ（クアダイ港へ）</li>
-    <li><span class="time">8:30～9:00</span>スピードボートでチャム島へ</li>
-    <li><span class="time">9:30～10:30</span>島内文化体験（古井戸・パゴダ・ローカル市場）</li>
-    <li><span class="time">11:00</span>ビーチ到着・着替え</li>
-    <li><span class="time">11:30～12:15</span>シュノーケリング／シーウォーク（オプション）</li>
-    <li><span class="time">12:30</span>シーフードランチ</li>
-    <li><span class="time">13:15～14:00</span>ビーチ自由時間</li>
-    <li><span class="time">14:00～14:30</span>本土へ戻る（スピードボート）</li>
-    <li><span class="time">15:30～16:00</span>ホイアン到着・荷物受取</li>
-    <li><span class="time">17:00</span>Grabでダナンへ移動・Naman Retreat Resortチェックイン</li>
-    <li><span class="time">19:00</span>夕食＆ルーフトップバー（Sky36 Bar等）</li>
-    <li><span class="time">20:30</span>ナイトマーケットや市内散策</li>
-  </ul>
-</section>
+  <div class="hotels">
+    <div class="hotel">ホイアン：RiverTown Hoi An Resort &amp; Spa</div>
+    <div class="hotel">ダナン：Naman Retreat Resort</div>
+  </div>
 
-<section>
-  <div class="date">9/12（金）</div>
-  <div class="day-title">ダナン観光・ショッピング・夜ドラゴンブリッジショー</div>
-  <ul>
-    <li><span class="time">朝</span>Naman Retreat Resortで朝食・ミーケビーチやホテルプールでゆっくり</li>
-    <li><span class="time">11:00</span>五行山（マーブルマウンテン）観光</li>
-    <li><span class="time">13:30</span>ランチ</li>
-    <li><span class="time">午後</span>ダナン大聖堂、市場、カフェ等でショッピングや街歩き</li>
-    <li><span class="time">17:00</span>ホテルやカフェで休憩</li>
-    <li><span class="time">18:30～19:30</span>市内レストランかカフェで夕食</li>
-    <li><span class="time">20:15</span>ドラゴンブリッジ周辺に移動</li>
-    <li><span class="time">21:00</span>ドラゴンブリッジ ファイヤー＆ウォーターショー鑑賞</li>
-  </ul>
-</section>
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-date">9/10（水）</div>
+      <div class="day-title">行き：羽田→ホーチミン→ダナン→ホイアン</div>
+    </div>
+    <ul class="timeline">
+      <li><span class="time">0:00</span>羽田空港第3ターミナル集合</li>
+      <li><span class="time">02:00</span>羽田空港発（VJ821便）</li>
+      <li><span class="time">06:10</span>ホーチミン着（入国、国内線ターミナルへ移動）</li>
+      <li><span class="time">12:00</span>ホーチミン発（VJ1656便）</li>
+      <li><span class="time">13:25</span>ダナン空港着</li>
+      <li><span class="time">13:45</span>ダナン空港で両替</li>
+      <li><span class="time">14:00</span>Grab配車でRiverTown Hoi An Resort &amp; Spaへ移動</li>
+      <li><span class="time">14:40</span>チェックイン・ホテルで休憩</li>
+      <li><span class="time">16:30</span>旧市街へ観光に出発（来遠橋・会館・カフェなど）</li>
+      <li><span class="time">18:00</span>バインミー、レストランでディナー</li>
+      <li><span class="time">20:00</span>ランタン鑑賞＆灯篭流し・ナイトマーケット</li>
+    </ul>
+  </div>
 
-<section>
-  <div class="date">9/13（土）</div>
-  <div class="day-title">ミーケビーチでマリンアクティビティ ＆ ショッピング</div>
-  <ul>
-    <li><span class="time">朝</span>Naman Retreat Resortで朝食</li>
-    <li><span class="time">午前</span>ミーケビーチでマリンアクティビティ（ジェットスキー、SUP、パラセーリング等）もしくは遺跡ツアー</li>
-    <li><span class="time">昼</span>カフェやレストランでランチ</li>
-    <li><span class="time">午後</span>Vincom Plaza / Lotte Mart / ハン市場などでショッピング＆カフェタイム</li>
-    <li><span class="time">夕方</span>ホテルで休憩・希望があればスパやマッサージ</li>
-    <li><span class="time">夜</span>ビーチサイドまたは市内レストランでディナー</li>
-  </ul>
-</section>
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-date">9/11（木）</div>
+      <div class="day-title">チャム島ツアー ＆ ダナンへ移動・夜ルーフトップバー／ナイトマーケット</div>
+    </div>
+    <ul class="timeline">
+      <li><span class="time">6:30</span>朝食ビュッフェ（RiverTown Hoi An Resort &amp; Spa）</li>
+      <li><span class="time">7:15</span>チェックアウト・フロントで荷物預け</li>
+      <li><span class="time">7:30</span>ホテルにてツアーピックアップ（クアダイ港へ）</li>
+      <li><span class="time">8:30〜9:00</span>スピードボートでチャム島へ</li>
+      <li><span class="time">9:30〜10:30</span>島内文化体験（古井戸・パゴダ・ローカル市場）</li>
+      <li><span class="time">11:00</span>ビーチ到着・着替え</li>
+      <li><span class="time">11:30〜12:15</span>シュノーケリング／シーウォーク（オプション）</li>
+      <li><span class="time">12:30</span>シーフードランチ</li>
+      <li><span class="time">13:15〜14:00</span>ビーチ自由時間</li>
+      <li><span class="time">14:00〜14:30</span>本土へ戻る（スピードボート）</li>
+      <li><span class="time">15:30〜16:00</span>ホイアン到着・荷物受取</li>
+      <li><span class="time">17:00</span>Grabでダナンへ移動・Naman Retreat Resortチェックイン</li>
+      <li><span class="time">19:00</span>夕食＆ルーフトップバー（Sky36 Bar等）</li>
+      <li><span class="time">20:30</span>ナイトマーケットや市内散策</li>
+    </ul>
+  </div>
 
-<section>
-  <div class="date">9/14（日）</div>
-  <div class="day-title">帰国日：ダナン → 香港 → 羽田</div>
-  <ul>
-    <li><span class="time">6:30～7:00</span>起床、朝食ビュッフェ</li>
-    <li><span class="time">7:30</span>Naman Retreat Resortチェックアウト・空港へ移動</li>
-    <li><span class="time">8:00</span>ダナン空港到着</li>
-    <li><span class="time">10:05</span>ダナン発（UO553便）</li>
-    <li><span class="time">13:05</span>香港着（トランジット：約4.5時間）</li>
-    <li><span class="time">17:35</span>香港発（UO622便）</li>
-    <li><span class="time">22:55</span>羽田着</li>
-  </ul>
-</section>
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-date">9/12（金）</div>
+      <div class="day-title">ダナン観光・ショッピング・夜ドラゴンブリッジショー</div>
+    </div>
+    <ul class="timeline">
+      <li><span class="time">朝</span>Naman Retreat Resortで朝食・ミーケビーチやホテルプールでゆっくり</li>
+      <li><span class="time">11:00</span>五行山（マーブルマウンテン）観光</li>
+      <li><span class="time">13:30</span>ランチ</li>
+      <li><span class="time">午後</span>ダナン大聖堂、市場、カフェ等でショッピングや街歩き</li>
+      <li><span class="time">17:00</span>ホテルやカフェで休憩</li>
+      <li><span class="time">18:30〜19:30</span>市内レストランかカフェで夕食</li>
+      <li><span class="time">20:15</span>ドラゴンブリッジ周辺に移動</li>
+      <li><span class="time">21:00</span>ドラゴンブリッジ ファイヤー＆ウォーターショー鑑賞</li>
+    </ul>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-date">9/13（土）</div>
+      <div class="day-title">ミーケビーチでマリンアクティビティ ＆ ショッピング</div>
+    </div>
+    <ul class="timeline">
+      <li><span class="time">朝</span>Naman Retreat Resortで朝食</li>
+      <li><span class="time">午前</span>ミーケビーチでマリンアクティビティ（ジェットスキー、SUP、パラセーリング等）もしくは遺跡ツアー</li>
+      <li><span class="time">昼</span>カフェやレストランでランチ</li>
+      <li><span class="time">午後</span>Vincom Plaza / Lotte Mart / ハン市場などでショッピング＆カフェタイム</li>
+      <li><span class="time">夕方</span>ホテルで休憩・希望があればスパやマッサージ</li>
+      <li><span class="time">夜</span>ビーチサイドまたは市内レストランでディナー</li>
+    </ul>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-date">9/14（日）</div>
+      <div class="day-title">帰国日：ダナン → 香港 → 羽田</div>
+    </div>
+    <ul class="timeline">
+      <li><span class="time">6:30〜7:00</span>起床、朝食ビュッフェ</li>
+      <li><span class="time">7:30</span>Naman Retreat Resortチェックアウト・空港へ移動</li>
+      <li><span class="time">8:00</span>ダナン空港到着</li>
+      <li><span class="time">10:05</span>ダナン発（UO553便）</li>
+      <li><span class="time">13:05</span>香港着（トランジット：約4.5時間）</li>
+      <li><span class="time">17:35</span>香港発（UO622便）</li>
+      <li><span class="time">22:55</span>羽田着</li>
+    </ul>
+  </div>
+
+</div>
 
 </body>
 </html>
