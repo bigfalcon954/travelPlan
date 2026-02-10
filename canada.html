@@ -4,20 +4,238 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>カナダ旅行スケジュール（2025年12月27日～2026年1月3日）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; background:#fff8f0; margin:0; padding:0 10px; color:#333; }
-  h1 { text-align:center; color:#b35247; margin:20px 0 10px; font-size:1.9em; font-weight:700; }
-  #countdown { text-align:center; font-size:1.3em; color:#705554; font-weight:700; margin-bottom:20px; letter-spacing:1px; }
-  .hotel { font-size:1em; color:#837046; background:#f3e1c5; display:inline-block; padding:3px 11px; border-radius:12px; margin-bottom:4px; margin-top:6px; }
-  .date { font-size:2em; font-weight:bold; color:#705554; margin-top:35px; margin-bottom:10px; letter-spacing:2px; line-height:1.1; }
-  .day-title { font-weight:bold; color:#bc6c25; margin-bottom:10px; font-size:1.13em; letter-spacing:.5px; }
-  ul { list-style-type: disc; padding-left:22px; margin:0 0 18px 0; }
-  li { margin-bottom:8px; line-height:1.6; }
-  .time { font-weight:bold; color:#8b5e3c; margin-right:8px; }
-  @media (max-width:600px){ body{padding:20px 12px 40px} h1{font-size:1.3em} .date{font-size:1.4em; margin-top:28px} }
+  :root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --accent: #a78bfa;
+    --bg: #f5f3ff;
+    --card-bg: #ffffff;
+    --text: #1e1b4b;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --gradient-start: #312e81;
+    --gradient-mid: #4338ca;
+    --gradient-end: #6366f1;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+    --shadow-hover: 0 4px 24px rgba(99,102,241,0.14);
+    --radius: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Inter", "Noto Sans JP", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
+    padding: 48px 20px 40px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -15%;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(167,139,250,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -25%;
+    left: -10%;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(129,140,248,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero h1 {
+    font-size: 1.8em;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 small {
+    display: block;
+    font-size: 0.55em;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  .countdown-wrapper {
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+  }
+
+  #countdown {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 1.05em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255,255,255,0.18);
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px 60px;
+  }
+
+  .hotels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .hotel {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85em;
+    font-weight: 500;
+    color: var(--primary-dark);
+    background: rgba(99,102,241,0.07);
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 1px solid rgba(99,102,241,0.13);
+  }
+
+  .hotel::before {
+    content: '\1F3E8';
+    font-size: 1em;
+  }
+
+  .day-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px 24px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+    border: 1px solid var(--border);
+  }
+
+  .day-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .day-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--bg);
+  }
+
+  .day-date {
+    font-size: 1.6em;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+
+  .day-title {
+    font-size: 0.95em;
+    font-weight: 600;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .timeline {
+    list-style: none;
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary), rgba(99,102,241,0.15));
+    border-radius: 2px;
+  }
+
+  .timeline li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 12px;
+    font-size: 0.93em;
+  }
+
+  .timeline li::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    border: 2px solid var(--primary);
+  }
+
+  .timeline li:first-child::before {
+    background: var(--primary);
+  }
+
+  .time {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--primary-dark);
+    min-width: 52px;
+    margin-right: 6px;
+    font-size: 0.95em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 36px 16px 32px; }
+    .hero h1 { font-size: 1.35em; }
+    .hero h1 small { font-size: 0.6em; }
+    #countdown { font-size: 0.9em; padding: 8px 18px; }
+    .container { padding: 16px 12px 40px; }
+    .day-card { padding: 20px 16px; }
+    .day-header { flex-direction: column; gap: 4px; }
+    .day-date { font-size: 1.35em; }
+    .hotels { flex-direction: column; }
+  }
 </style>
 <script>
-// カウントダウン（出発基準：2025-12-27 00:00 JST）
 document.addEventListener('DOMContentLoaded', () => {
   const el = document.getElementById('countdown');
   const target = new Date('2025-12-27T00:00:00+09:00').getTime();
@@ -30,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const h = Math.floor(diff / 3600000);
     diff %= 3600000;
     const m = Math.floor(diff / 60000);
-    el.textContent = `出発まであと${d}日${h}時間${m}分！！`;
+    el.textContent = `出発まであと ${d}日 ${h}時間 ${m}分`;
   }
   tick();
   const t = setInterval(tick, 60000);
@@ -38,110 +256,140 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </head>
 <body>
-<h1>カナダ旅行スケジュール<br>2025年12月27日～2026年1月3日</h1>
-<div id="countdown">出発まであと--日--時間--分！！</div>
 
-<div class="hotel">12/27：Midnight Sun INN（ホワイトホース）</div><br />
-<div class="hotel">12/28-12/30：Boreale Ranch（ホワイトホース）</div><br />
-<div class="hotel">12/31-1/2：YMCA Hotel（バンクーバー）</div>
+<div class="hero">
+  <h1>
+    カナダ旅行スケジュール
+    <small>2025年12月27日（土）〜 2026年1月3日（土）</small>
+  </h1>
+  <div class="countdown-wrapper">
+    <div id="countdown">出発まであと--日--時間--分</div>
+  </div>
+</div>
 
-<section>
-  <div class="date">12/27（土）</div>
-  <div class="day-title">東京→成田→カルガリー→ホワイトホース</div>
-  <ul>
-    <li><span class="time">15:00</span>東京駅から高速バス乗車</li>
-    <li><span class="time">16:30</span>成田空港チェックイン</li>
-    <li><span class="time">18:35</span>成田空港発 WS081便</li>
-    <li><span class="time">11:40(03:40)</span>カルガリー着（現地時間／日本時間）</li>
-    <li>カルガリー空港で休憩・乗り継ぎ</li>
-    <li><span class="time">18:05(10:05)</span>カルガリー発</li>
-    <li><span class="time">20:45(13:45)</span>ホワイトホース着</li>
-    <li><span class="time">21:30(14:30)</span>ホテルチェックイン（Midnight Sun INN）</li>
-  </ul>
-</section>
+<div class="container">
 
-<section>
-  <div class="date">12/28（日）</div>
-  <div class="day-title">ホワイトホース滞在・Boreale Ranchへ移動</div>
-  <ul>
-    <li><span class="time">11:00(04:00)</span>ホテルチェックアウト（Midnight Sun INN）</li>
-    <li><span class="time">11:30(04:30)</span>市内散策・スーパーで買い出し</li>
-    <li><span class="time">14:00(07:00)</span>Mac's Fireweed Bookstoreで防寒具受取</li>
-    <li><span class="time">15:00(08:00)</span>タクシーで移動</li>
-    <li><span class="time">16:00(09:00)</span>Boreale Ranch チェックイン</li>
-    <li>夜：夕食・館内休憩</li>
-    <li><span class="time">23:00(16:00)</span>オーロラ鑑賞</li>
-  </ul>
-</section>
+  <div class="hotels">
+    <div class="hotel">12/27：Midnight Sun INN（ホワイトホース）</div>
+    <div class="hotel">12/28-30：Boreale Ranch（ホワイトホース）</div>
+    <div class="hotel">12/31-1/2：YMCA Hotel（バンクーバー）</div>
+  </div>
 
-<section>
-  <div class="date">12/29（月）</div>
-  <div class="day-title">自由行動＆オーロラ鑑賞</div>
-  <ul>
-    <li>朝食後、館内・周辺自由時間</li>
-    <li>昼・夕食（Boreale Ranch）</li>
-    <li>スノーアクティビティ、写真撮影等（希望に合わせて）</li>
-    <li><span class="time">23:00(16:00)</span>オーロラ鑑賞</li>
-  </ul>
-</section>
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-date">12/27（土）</div>
+      <div class="day-title">東京→成田→カルガリー→ホワイトホース</div>
+    </div>
+    <ul class="timeline">
+      <li><span class="time">15:00</span>東京駅から高速バス乗車</li>
+      <li><span class="time">16:30</span>成田空港チェックイン</li>
+      <li><span class="time">18:35</span>成田空港発 WS081便</li>
+      <li><span class="time">11:40(03:40)</span>カルガリー着（現地時間／日本時間）</li>
+      <li>カルガリー空港で休憩・乗り継ぎ</li>
+      <li><span class="time">18:05(10:05)</span>カルガリー発</li>
+      <li><span class="time">20:45(13:45)</span>ホワイトホース着</li>
+      <li><span class="time">21:30(14:30)</span>ホテルチェックイン（Midnight Sun INN）</li>
+    </ul>
+  </div>
 
-<section>
-  <div class="date">12/30（火）</div>
-  <div class="day-title">犬ぞり体験＆オーロラ鑑賞</div>
-  <ul>
-    <li>朝食後、館内や周辺で自由時間・観光</li>
-    <li><span class="time">13:30(06:30)</span>犬ぞりツアーピックアップ</li>
-    <li><span class="time">14:00(07:00)</span>犬ぞりツアー開始</li>
-    <li><span class="time">16:00(09:00)</span>犬ぞりツアー終了</li>
-    <li><span class="time">16:30(09:30)</span>Boreale Ranch戻り</li>
-    <li>夕食（Boreale Ranch）</li>
-    <li><span class="time">23:00(16:00)</span>オーロラ鑑賞</li>
-  </ul>
-</section>
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-date">12/28（日）</div>
+      <div class="day-title">ホワイトホース滞在・Boreale Ranchへ移動</div>
+    </div>
+    <ul class="timeline">
+      <li><span class="time">11:00(04:00)</span>ホテルチェックアウト（Midnight Sun INN）</li>
+      <li><span class="time">11:30(04:30)</span>市内散策・スーパーで買い出し</li>
+      <li><span class="time">14:00(07:00)</span>Mac's Fireweed Bookstoreで防寒具受取</li>
+      <li><span class="time">15:00(08:00)</span>タクシーで移動</li>
+      <li><span class="time">16:00(09:00)</span>Boreale Ranch チェックイン</li>
+      <li>夜：夕食・館内休憩</li>
+      <li><span class="time">23:00(16:00)</span>オーロラ鑑賞</li>
+    </ul>
+  </div>
 
-<section>
-  <div class="date">12/31（水）</div>
-  <div class="day-title">ホワイトホース→バンクーバー・新年カウントダウン</div>
-  <ul>
-    <li><span class="time">10:30(03:30)</span>Boreale Ranchチェックアウト</li>
-    <li><span class="time">10:40(03:40)</span>タクシーで移動</li>
-    <li><span class="time">11:15(04:15)</span>Mac's Fireweed Bookstoreで防寒具返却</li>
-    <li><span class="time">11:30(04:30)</span>ホワイトホース空港チェックイン</li>
-    <li><span class="time">12:55(05:55)</span>ホワイトホース発 4N553便</li>
-    <li><span class="time">14:10(07:10)</span>バンクーバー着</li>
-    <li><span class="time">16:00(09:00)</span>YMCA Hotelバンクーバーチェックイン</li>
-    <li>夜：新年カウントダウンイベント参加予定</li>
-  </ul>
-</section>
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-date">12/29（月）</div>
+      <div class="day-title">自由行動＆オーロラ鑑賞</div>
+    </div>
+    <ul class="timeline">
+      <li>朝食後、館内・周辺自由時間</li>
+      <li>昼・夕食（Boreale Ranch）</li>
+      <li>スノーアクティビティ、写真撮影等（希望に合わせて）</li>
+      <li><span class="time">23:00(16:00)</span>オーロラ鑑賞</li>
+    </ul>
+  </div>
 
-<section>
-  <div class="date">1/1（木）</div>
-  <div class="day-title">バンクーバー観光＆休息日</div>
-  <ul>
-    <li>市内観光（スタンレーパーク、ガスタウン散策等）</li>
-    <li>ショッピング、レストランで食事</li>
-    <li>YMCA Hotel滞在</li>
-  </ul>
-</section>
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-date">12/30（火）</div>
+      <div class="day-title">犬ぞり体験＆オーロラ鑑賞</div>
+    </div>
+    <ul class="timeline">
+      <li>朝食後、館内や周辺で自由時間・観光</li>
+      <li><span class="time">13:30(06:30)</span>犬ぞりツアーピックアップ</li>
+      <li><span class="time">14:00(07:00)</span>犬ぞりツアー開始</li>
+      <li><span class="time">16:00(09:00)</span>犬ぞりツアー終了</li>
+      <li><span class="time">16:30(09:30)</span>Boreale Ranch戻り</li>
+      <li>夕食（Boreale Ranch）</li>
+      <li><span class="time">23:00(16:00)</span>オーロラ鑑賞</li>
+    </ul>
+  </div>
 
-<section>
-  <div class="date">1/2（金）</div>
-  <div class="day-title">バンクーバー→成田</div>
-  <ul>
-    <li><span class="time">07:30(00:30)</span>YMCA Hotelチェックアウト</li>
-    <li><span class="time">08:00(01:00)</span>バンクーバー空港チェックイン</li>
-    <li><span class="time">09:50(02:50)</span>バンクーバー発 ZG021便</li>
-    <li>機内泊、翌日に日本着</li>
-  </ul>
-</section>
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-date">12/31（水）</div>
+      <div class="day-title">ホワイトホース→バンクーバー・新年カウントダウン</div>
+    </div>
+    <ul class="timeline">
+      <li><span class="time">10:30(03:30)</span>Boreale Ranchチェックアウト</li>
+      <li><span class="time">10:40(03:40)</span>タクシーで移動</li>
+      <li><span class="time">11:15(04:15)</span>Mac's Fireweed Bookstoreで防寒具返却</li>
+      <li><span class="time">11:30(04:30)</span>ホワイトホース空港チェックイン</li>
+      <li><span class="time">12:55(05:55)</span>ホワイトホース発 4N553便</li>
+      <li><span class="time">14:10(07:10)</span>バンクーバー着</li>
+      <li><span class="time">16:00(09:00)</span>YMCA Hotelバンクーバーチェックイン</li>
+      <li>夜：新年カウントダウンイベント参加予定</li>
+    </ul>
+  </div>
 
-<section>
-  <div class="date">1/3（土）</div>
-  <div class="day-title">成田空港着</div>
-  <ul>
-    <li><span class="time">13:00</span>成田空港着・お疲れさまでした！</li>
-  </ul>
-</section>
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-date">1/1（木）</div>
+      <div class="day-title">バンクーバー観光＆休息日</div>
+    </div>
+    <ul class="timeline">
+      <li>市内観光（スタンレーパーク、ガスタウン散策等）</li>
+      <li>ショッピング、レストランで食事</li>
+      <li>YMCA Hotel滞在</li>
+    </ul>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-date">1/2（金）</div>
+      <div class="day-title">バンクーバー→成田</div>
+    </div>
+    <ul class="timeline">
+      <li><span class="time">07:30(00:30)</span>YMCA Hotelチェックアウト</li>
+      <li><span class="time">08:00(01:00)</span>バンクーバー空港チェックイン</li>
+      <li><span class="time">09:50(02:50)</span>バンクーバー発 ZG021便</li>
+      <li>機内泊、翌日に日本着</li>
+    </ul>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-date">1/3（土）</div>
+      <div class="day-title">成田空港着</div>
+    </div>
+    <ul class="timeline">
+      <li><span class="time">13:00</span>成田空港着・お疲れさまでした！</li>
+    </ul>
+  </div>
+
+</div>
 
 </body>
 </html>
