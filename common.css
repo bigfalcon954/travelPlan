@@ -1,0 +1,303 @@
+/* 全ページ共通スタイル。
+   各ページは <style> で --primary 系の色変数だけを上書きする。 */
+
+:root {
+  --card-bg: #ffffff;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --note-bg: #fefce8;
+  --note-border: #fde68a;
+  --note-text: #92400e;
+  --note-strong: #b45309;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+  --radius: 16px;
+  --primary-text: var(--primary-dark);
+}
+
+/* 各ページの :root 指定より優先させるため詳細度を上げている */
+@media (prefers-color-scheme: dark) {
+  :root:root {
+    --bg: #0b1120;
+    --card-bg: #111827;
+    --text: #e5e7eb;
+    --text-muted: #94a3b8;
+    --border: #1f2937;
+    --note-bg: #2a2410;
+    --note-border: #6b5a1a;
+    --note-text: #fde68a;
+    --note-strong: #fcd34d;
+    --shadow: 0 1px 3px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.3);
+    --primary-text: var(--primary-light);
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Inter", "Noto Sans JP", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+a { color: var(--primary-text); }
+
+/* ---------- ヒーロー ---------- */
+
+.hero {
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid, var(--gradient-start)) 50%, var(--gradient-end) 100%);
+  padding: 48px 20px 40px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: var(--hero-glow, rgba(255,255,255,0.06));
+}
+
+.hero::before { top: -40%; right: -20%; width: 400px; height: 400px; }
+.hero::after  { bottom: -30%; left: -10%; width: 300px; height: 300px; opacity: 0.7; }
+
+.hero > * { position: relative; z-index: 1; }
+
+.hero h1 {
+  font-size: 1.8em;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.hero .subtitle {
+  margin-top: 8px;
+  font-size: 0.99em;
+  opacity: 0.9;
+  letter-spacing: 0.05em;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 0.85em;
+  color: #fff;
+  opacity: 0.85;
+  text-decoration: none;
+}
+
+.back-link:hover { opacity: 1; text-decoration: underline; }
+
+.countdown {
+  display: inline-block;
+  margin-top: 20px;
+  background: rgba(255,255,255,0.14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 1.05em;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* ---------- レイアウト ---------- */
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px 60px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+@media (hover: hover) {
+  .card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+}
+
+.legend {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.note-box {
+  margin-top: 14px;
+  padding: 12px 16px;
+  background: var(--note-bg);
+  border: 1px solid var(--note-border);
+  border-radius: 10px;
+  font-size: 0.88em;
+  color: var(--note-text);
+  line-height: 1.7;
+}
+
+.note-box b { color: var(--note-strong); }
+
+/* ---------- 宿泊先 ---------- */
+
+.hotels {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.hotel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.86em;
+  color: var(--primary-text);
+  background: var(--primary-tint);
+  padding: 8px 16px;
+  border-radius: 50px;
+  border: 1px solid var(--primary-tint-border);
+}
+
+.hotel::before {
+  content: '\1F3E8';
+  font-size: 1em;
+}
+
+/* ---------- 日別スケジュール ---------- */
+
+.day-card { padding: 28px 24px; }
+
+.day-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--bg);
+  font-size: 1em;
+}
+
+.day-date {
+  font-size: 1.6em;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.day-title {
+  font-size: 0.95em;
+  font-weight: 600;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.timeline {
+  list-style: none;
+  position: relative;
+  padding-left: 20px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary), var(--primary-tint));
+  border-radius: 2px;
+}
+
+.timeline li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 12px;
+  font-size: 0.93em;
+}
+
+.timeline li::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 2px solid var(--primary);
+}
+
+.timeline li:first-child::before { background: var(--primary); }
+
+.time {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--primary-text);
+  min-width: 52px;
+  margin-right: 6px;
+  font-size: 0.95em;
+  font-variant-numeric: tabular-nums;
+}
+
+.jst {
+  font-weight: 400;
+  font-size: 0.85em;
+  color: var(--text-muted);
+  margin-left: 4px;
+}
+
+/* ---------- レスポンシブ ---------- */
+
+@media (max-width: 600px) {
+  .hero { padding: 36px 16px 32px; }
+  .hero h1 { font-size: 1.35em; }
+  .hero .subtitle { font-size: 0.85em; }
+  .countdown { font-size: 0.9em; padding: 8px 18px; }
+  .container { padding: 16px 12px 40px; }
+  .day-card { padding: 20px 16px; }
+  .day-header { flex-direction: column; gap: 4px; }
+  .day-date { font-size: 1.35em; }
+  .hotels { flex-direction: column; align-items: flex-start; }
+}
+
+/* ---------- 印刷 ---------- */
+
+@media print {
+  :root:root {
+    --bg: #fff;
+    --card-bg: #fff;
+    --text: #000;
+    --text-muted: #444;
+    --border: #ccc;
+    --primary-text: #000;
+  }
+  body { font-size: 11pt; }
+  .hero {
+    background: none;
+    color: #000;
+    padding: 0 0 12px;
+    border-bottom: 2px solid #000;
+  }
+  .hero::before, .hero::after, .countdown, .back-link { display: none; }
+  .container { max-width: none; padding: 12px 0 0; }
+  .card {
+    box-shadow: none;
+    break-inside: avoid;
+    transform: none;
+  }
+}

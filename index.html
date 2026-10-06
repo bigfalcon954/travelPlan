@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>旅行プラン一覧</title>
+<meta name="description" content="これまでの旅行のスケジュールと飛行機候補の一覧。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="旅行プラン一覧">
+<meta property="og:description" content="これまでの旅行のスケジュールと飛行機候補の一覧。">
+<meta name="theme-color" content="#334155">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧳</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<style>
+  :root {
+    --primary: #475569;
+    --primary-dark: #334155;
+    --primary-light: #cbd5e1;
+    --primary-tint: rgba(71,85,105,0.08);
+    --primary-tint-border: rgba(71,85,105,0.15);
+    --bg: #f8fafc;
+    --text: #0f172a;
+    --gradient-start: #1e293b;
+    --gradient-end: #475569;
+    --shadow-hover: 0 4px 24px rgba(71,85,105,0.16);
+  }
+
+  .trip-card { padding: 24px; }
+
+  .trip-card h2 {
+    font-size: 1.2em;
+    font-weight: 800;
+    color: var(--trip-color);
+  }
+
+  .trip-card .period {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .trip-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .trip-links a {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    background: var(--trip-color);
+  }
+
+  .trip-links a.secondary {
+    color: var(--trip-color);
+    background: transparent;
+    border: 1px solid var(--trip-color);
+  }
+
+  .canada  { --trip-color: #6366f1; }
+  .vietnam { --trip-color: #0d9488; }
+
+  @media (prefers-color-scheme: dark) {
+    .canada  { --trip-color: #a5b4fc; }
+    .vietnam { --trip-color: #5eead4; }
+    .trip-links a { color: #0b1120; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>旅行プラン一覧</h1>
+</header>
+
+<main class="container">
+
+  <section class="card trip-card canada">
+    <h2>🍁 カナダ（ホワイトホース・バンクーバー）</h2>
+    <p class="period">2025年12月27日（土）〜 2026年1月3日（土）</p>
+    <ul class="trip-links">
+      <li><a href="canada.html">スケジュール</a></li>
+    </ul>
+  </section>
+
+  <section class="card trip-card vietnam">
+    <h2>🏝️ ベトナム（ホイアン・ダナン）</h2>
+    <p class="period">2025年9月10日（水）〜 14日（日）</p>
+    <ul class="trip-links">
+      <li><a href="vietnam.html">スケジュール</a></li>
+      <li><a class="secondary" href="vietnam-flights.html">帰りの飛行機候補</a></li>
+    </ul>
+  </section>
+
+</main>
+
+</body>
+</html>
